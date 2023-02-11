@@ -103,3 +103,7 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
             closeModal()
         }
     })
+
+    //slick
+    
+    $(".slider-block").slick();
