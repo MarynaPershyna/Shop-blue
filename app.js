@@ -106,4 +106,7 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
 
     //slick
     
-    $(".slider-block").slick();
+    $(".slider-block").slick({
+        // autoplay:true,
+        dots:true,
+    });
