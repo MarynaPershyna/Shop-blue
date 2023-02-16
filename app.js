@@ -100,9 +100,20 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
 
     modal.addEventListener("click", function (e){
         if (e.target === modal) {
-            closeModal()
+            closeModal();
+            
         }
     })
+
+    function showModalByScroll() {
+        if (window.scrollY >= document.body.scrollHeight / 2){
+            openModal();
+            window.removeEventListener("scroll", showModalByScroll);
+        }
+    };
+            // setTimeout(openModal, 5000);
+            
+            // window.addEventListener("scroll", showModalByScroll);
 
     //slick
     
@@ -110,3 +121,5 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
         // autoplay:true,
         dots:true,
     });
+
+    AOS.init();
