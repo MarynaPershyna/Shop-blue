@@ -122,4 +122,38 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
         dots:true,
     });
 
-    AOS.init();
+    // AOS.init();
+
+    const decrementBtns = document.querySelectorAll(".decrement-button")[0];
+    const incrementBtns = document.querySelectorAll(".increment-button")[0];
+    const productsInput = document.querySelectorAll(".product-quantity input")[0];
+    console.log(decrementBtns);
+    console.log(incrementBtns);
+    console.log(productsInput);
+
+    function Counter(incrementBtn, decrementBtn, inputField) {
+        this.domRefs = {
+            incrementBtn,
+            decrementBtn,
+            inputField,
+        };
+        this.toggleButtonState = function () {
+            let count = this.domRefs.inputField.value;
+            this.domRefs.decrementBtn.disabled = count <= 1;
+            this.domRefs.incrementBtn.disabled = count >= 10;
+        };
+        this.toggleButtonState();
+
+        this.increment = function () {
+            this.domRefs.inputField.value = +this.domRefs.inputField.value + 1;
+            this.toggleButtonState();
+        };
+        this.decrement = function () {
+            this.domRefs.inputField.value = +this.domRefs.inputField.value - 1;
+            this.toggleButtonState();
+        };
+        this.domRefs.incrementBtn.addEventListener("click", this.increment.bind(this));
+        this.domRefs.decrementBtn.addEventListener("click", this.decrement.bind(this));
+    }
+    const counter1 = new Counter(incrementBtns, decrementBtns, productsInput);
+    console.log(counter1);

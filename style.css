@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-image: url("/imges/patt.png");
+  background-image: url("imges/patt.png");
 }
 .container{
   width: 1200px;
@@ -540,4 +540,9 @@ padding: 20px;
 }
 .products-arrow-down{
   margin-left: 5px;
+}
+
+.product-quantity {
+  text-align: center;
+  margin-top: 20px;
 }
