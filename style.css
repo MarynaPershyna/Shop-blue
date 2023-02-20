@@ -546,3 +546,16 @@ padding: 20px;
   text-align: center;
   margin-top: 20px;
 }
+
+.footer{
+  background-color: rgba(255, 255, 255, .75);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.copyright{
+  color: #2b71b8;
+  font-size: 21px;
+  
+}
