@@ -5,8 +5,8 @@ let productsCountEL = document.querySelector("#products-count");
 
 let addToCartBtns = document.querySelectorAll(".btn-add-to-cart");
 
-console.log(productsCountEL);
-console.log(addToCartBtns);
+// console.log(productsCountEL);
+// console.log(addToCartBtns);
 
 
 
@@ -124,12 +124,12 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
 
     // AOS.init();
 
-    const decrementBtns = document.querySelectorAll(".decrement-button")[0];
-    const incrementBtns = document.querySelectorAll(".increment-button")[0];
-    const productsInput = document.querySelectorAll(".product-quantity input")[0];
-    console.log(decrementBtns);
-    console.log(incrementBtns);
-    console.log(productsInput);
+    const decrementBtns = document.querySelectorAll(".decrement-button");
+    const incrementBtns = document.querySelectorAll(".increment-button");
+    const productsInput = document.querySelectorAll(".product-quantity input");
+    // console.log(decrementBtns);
+    // console.log(incrementBtns);
+    // console.log(productsInput);
 
     function Counter(incrementBtn, decrementBtn, inputField) {
         this.domRefs = {
@@ -143,6 +143,7 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
             this.domRefs.incrementBtn.disabled = count >= 10;
         };
         this.toggleButtonState();
+        
 
         this.increment = function () {
             this.domRefs.inputField.value = +this.domRefs.inputField.value + 1;
@@ -155,5 +156,13 @@ moreDetailsBtnsClose.addEventListener("click", closeModal
         this.domRefs.incrementBtn.addEventListener("click", this.increment.bind(this));
         this.domRefs.decrementBtn.addEventListener("click", this.decrement.bind(this));
     }
-    const counter1 = new Counter(incrementBtns, decrementBtns, productsInput);
-    console.log(counter1);
+    // const counter1 = new Counter(incrementBtns, decrementBtns, productsInput);
+    // console.log(counter1);
+
+    //для всіх 
+    const counters = [];
+
+    productsInput.forEach((item,i) => {
+        counters[i] = new Counter(incrementBtns[i], decrementBtns[i], item);
+    });
+
